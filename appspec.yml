@@ -4,6 +4,9 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/Feple_BE
+    overwrite: yes
+file_exists_behavior: OVERWRITE
+
 permissions:
   - object: /home/ubuntu/Feple_BE/
     owner: ubuntu
