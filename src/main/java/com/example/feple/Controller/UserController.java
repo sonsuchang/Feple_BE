@@ -112,7 +112,7 @@ public class UserController {
     @PatchMapping("/level/{uid}")
     public ResponseEntity<String> updateLevelByUid(@PathVariable String uid){
         UserEntity userEntity = userRepository.findByUid(uid);
-        Long newLevel = userEntity.getLevel() + 1; //TODO Level 업데이트 어떻게 해야할지 생각해야함
+        Long newLevel = userEntity.getLevel(); //TODO Level 업데이트 어떻게 해야할지 생각해야함
         userEntity.setPost_num(newLevel);
         return ResponseEntity.ok("Level updated successfully");
     }
