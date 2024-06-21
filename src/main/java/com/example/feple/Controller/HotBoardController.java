@@ -53,7 +53,6 @@ public class HotBoardController {
         existingHotBoard.setNickname(updatedHotBoard.getNickname());
         existingHotBoard.setPostname(updatedHotBoard.getPostname());
         existingHotBoard.setContent(updatedHotBoard.getContent());
-        existingHotBoard.setComments(updatedHotBoard.getComments());
         existingHotBoard.setHeart(updatedHotBoard.getHeart());
         existingHotBoard.setFavorite(updatedHotBoard.getFavorite());
         existingHotBoard.setDatetime(updatedHotBoard.getDatetime());

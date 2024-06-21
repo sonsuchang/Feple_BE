@@ -53,7 +53,6 @@ public class FreeBoardController {
         existingFreeBoard.setNickname(updatedFreeBoard.getNickname());
         existingFreeBoard.setPostname(updatedFreeBoard.getPostname());
         existingFreeBoard.setContent(updatedFreeBoard.getContent());
-        existingFreeBoard.setComments(updatedFreeBoard.getComments());
         existingFreeBoard.setHeart(updatedFreeBoard.getHeart());
         existingFreeBoard.setFavorite(updatedFreeBoard.getFavorite());
         existingFreeBoard.setDatetime(updatedFreeBoard.getDatetime());

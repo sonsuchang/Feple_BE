@@ -53,7 +53,6 @@ public class GetUserBoardController {
         existingGetUserBoard.setNickname(updatedGetUserBoard.getNickname());
         existingGetUserBoard.setPostname(updatedGetUserBoard.getPostname());
         existingGetUserBoard.setContent(updatedGetUserBoard.getContent());
-        existingGetUserBoard.setComments(updatedGetUserBoard.getComments());
         existingGetUserBoard.setHeart(updatedGetUserBoard.getHeart());
         existingGetUserBoard.setFavorite(updatedGetUserBoard.getFavorite());
         existingGetUserBoard.setDatetime(updatedGetUserBoard.getDatetime());
