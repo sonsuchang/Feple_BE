@@ -4,12 +4,11 @@ import com.example.feple.Entity.UserEntity;
 import com.example.feple.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/users")
 public class UserController {
@@ -26,8 +25,8 @@ public class UserController {
         }
     }
 
-    @GetMapping("/{uid}")
-    public ResponseEntity<UserEntity> getUserInfo(@PathVariable String uid) {
+    @GetMapping("/user")
+    public ResponseEntity<UserEntity> getUserInfo(@RequestParam String uid) {
         UserEntity userEntity = userRepository.findByUid(uid);
         return ResponseEntity.ok(userEntity);
     }
