@@ -7,7 +7,6 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "HotBoard")
@@ -29,9 +28,6 @@ public class HotBoardEntity {
     @NonNull
     @Column
     private String content;
-
-    @Column
-    private List<String> comments;
 
     @Column
     private Long heart = 0L;

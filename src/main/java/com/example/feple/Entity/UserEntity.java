@@ -24,7 +24,9 @@ public class UserEntity {
     @Column
     private String uid;
 
-    @Column
+    @ElementCollection
+    @CollectionTable(name = "follow_artist", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "artist")
     private List<String> follow_artist;
 
     @Column

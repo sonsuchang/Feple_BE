@@ -17,13 +17,19 @@ public class UserController {
     private final UserRepository userRepository;
 
     @GetMapping("/")
-    public ResponseEntity<List<UserEntity>> getUserInfo(){
+    public ResponseEntity<List<UserEntity>> getAllUserInfo(){
         List<UserEntity> userinfo = userRepository.findAll();
         if (userinfo.isEmpty()){
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.ok(userinfo);
         }
+    }
+
+    @GetMapping("/{uid}")
+    public ResponseEntity<UserEntity> getUserInfo(@PathVariable String uid) {
+        UserEntity userEntity = userRepository.findByUid(uid);
+        return ResponseEntity.ok(userEntity);
     }
 
     @PostMapping("/save")
