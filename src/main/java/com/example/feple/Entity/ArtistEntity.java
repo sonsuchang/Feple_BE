@@ -24,6 +24,18 @@ public class ArtistEntity {
     @Column
     private String image_url;
 
-    @ManyToMany(mappedBy = "participate_artists")
-    private List<FestivalEntity> festival_list = new ArrayList<>();
+    @ManyToMany
+    @JoinTable(
+            name = "artist_festival",
+            joinColumns = @JoinColumn(name = "artist_id"),
+            inverseJoinColumns = @JoinColumn(name = "festival_id")
+    )
+    private List<FestivalEntity> festivalList = new ArrayList<>();
+
+    public void addFestival(FestivalEntity festival) {
+        if (!festivalList.contains(festival)) {
+            festivalList.add(festival);
+            festival.addArtist(this);
+        }
+    }
 }

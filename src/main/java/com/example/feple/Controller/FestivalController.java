@@ -19,6 +19,7 @@ public class FestivalController {
     @PostMapping("/save")
     public ResponseEntity<FestivalEntity> saveFestival(@RequestBody FestivalRequest festivalRequest) {
         FestivalEntity festivalEntity = new FestivalEntity();
+        System.out.println(festivalRequest.getFestivalName());
         festivalEntity.setFestival_name(festivalRequest.getFestivalName());
         festivalEntity.setDatetime(festivalRequest.getDatetime());
         festivalEntity.setPlace(festivalRequest.getPlace());

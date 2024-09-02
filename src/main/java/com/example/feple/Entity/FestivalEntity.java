@@ -30,19 +30,16 @@ public class FestivalEntity {
     @Column
     private String place;
 
-    @ManyToMany
-    @JoinTable(
-            name = "festival_artist",
-            joinColumns = @JoinColumn(name = "festival_id"),
-            inverseJoinColumns = @JoinColumn(name = "artist_id")
-    )
-    private List<ArtistEntity> participate_artists = new ArrayList<>();
+    @ManyToMany(mappedBy = "festivalList", cascade = CascadeType.PERSIST)
+    private List<ArtistEntity> participate_artist = new ArrayList<>();
 
     @Column
     private String timetable_url;
 
     public void addArtist(ArtistEntity artist) {
-        this.participate_artists.add(artist);
-        artist.getFestival_list().add(this);
+        if (!participate_artist.contains(artist)) {
+            participate_artist.add(artist);
+            artist.addFestival(this);
+        }
     }
 }
