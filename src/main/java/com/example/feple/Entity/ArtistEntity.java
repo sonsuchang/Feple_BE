@@ -22,7 +22,7 @@ public class ArtistEntity {
     private String name;
 
     @Column
-    private String timetable_url;
+    private String image_url;
 
     @ManyToMany(mappedBy = "participate_artists")
     private List<FestivalEntity> festival_list = new ArrayList<>();

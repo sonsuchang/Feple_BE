@@ -21,7 +21,7 @@ public class FestivalService {
 
     public FestivalEntity saveFestival(FestivalEntity festival, List<String> artistNames) {
         for (String artistName : artistNames) {
-            Optional<ArtistEntity> artistOpt = artistRepository.findByArtistName(artistName);
+            Optional<ArtistEntity> artistOpt = artistRepository.findByName(artistName);
             artistOpt.ifPresent(festival::addArtist);
         }
         return festivalRepository.save(festival);
