@@ -19,7 +19,10 @@ public class ArtistEntity {
 
     @NonNull
     @Column(unique = true)
-    private String artistName;
+    private String name;
+
+    @Column
+    private String timetable_url;
 
     @ManyToMany(mappedBy = "participate_artists")
     private List<FestivalEntity> festival_list = new ArrayList<>();
