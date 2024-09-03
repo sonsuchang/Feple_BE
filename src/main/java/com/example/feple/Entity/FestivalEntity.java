@@ -39,7 +39,6 @@ public class FestivalEntity {
     public void addArtist(ArtistEntity artist) {
         if (!participate_artist.contains(artist)) {
             participate_artist.add(artist);
-            artist.addFestival(this);
         }
     }
 }

@@ -35,7 +35,6 @@ public class ArtistEntity {
     public void addFestival(FestivalEntity festival) {
         if (!festivalList.contains(festival)) {
             festivalList.add(festival);
-            festival.addArtist(this);
         }
     }
 }
