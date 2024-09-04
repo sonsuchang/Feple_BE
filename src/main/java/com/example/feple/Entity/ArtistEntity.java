@@ -22,19 +22,14 @@ public class ArtistEntity {
     private String name;
 
     @Column
-    private String image_url;
+    private String imgUrl;
 
-    @ManyToMany
-    @JoinTable(
-            name = "artist_festival",
-            joinColumns = @JoinColumn(name = "artist_id"),
-            inverseJoinColumns = @JoinColumn(name = "festival_id")
-    )
-    private List<FestivalEntity> festivalList = new ArrayList<>();
+    @ElementCollection
+    @CollectionTable(name = "artists_songs", joinColumns = @JoinColumn(name = "artist_id"))
+    @Column(name = "song")
+    private List<String> songs = new ArrayList<>();
 
-    public void addFestival(FestivalEntity festival) {
-        if (!festivalList.contains(festival)) {
-            festivalList.add(festival);
-        }
-    }
+    @ElementCollection
+    @CollectionTable(name = "artist_festival_details", joinColumns = @JoinColumn(name = "artist_id"))
+    private List<FestivalDetails> festivalDetails = new ArrayList<>();
 }

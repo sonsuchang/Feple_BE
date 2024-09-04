@@ -21,7 +21,7 @@ public class FestivalEntity {
 
     @NonNull
     @Column
-    private String festival_name;
+    private String name;
 
     @Column
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
@@ -30,15 +30,11 @@ public class FestivalEntity {
     @Column
     private String place;
 
-    @ManyToMany(mappedBy = "festivalList", cascade = CascadeType.PERSIST)
-    private List<ArtistEntity> participate_artist = new ArrayList<>();
+    @ElementCollection
+    @CollectionTable(name = "festival_artists", joinColumns = @JoinColumn(name = "festival_id"))
+    @Column(name = "artist")
+    private List<String> participate_artist = new ArrayList<>();
 
     @Column
-    private String timetable_url;
-
-    public void addArtist(ArtistEntity artist) {
-        if (!participate_artist.contains(artist)) {
-            participate_artist.add(artist);
-        }
-    }
+    private String imgUrl;
 }
